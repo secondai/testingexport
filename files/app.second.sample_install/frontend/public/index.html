@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <style>
+      /* These styles make the body full-height */
+      html,
+      body {
+        height: 100%;
+      }
+      /* These styles disable body scrolling if you are using <ScrollView> */
+      html,
+      body {
+        overflow: hidden;
+      }
+      /* These styles make the root element full-height */
+      #root {
+        display: flex;
+        height: 100%;
+      }
+    </style>
+
+    <title>Second PWA</title>
+
+    <link rel="shortcut icon" type="image/png" href="%PUBLIC_URL%/static/apple-icon-144x144.png">
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%/static/apple-icon-144x144.png">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="%PUBLIC_URL%/static/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="%PUBLIC_URL%/static/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="%PUBLIC_URL%/static/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="%PUBLIC_URL%/static/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="%PUBLIC_URL%/static/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="%PUBLIC_URL%/static/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="%PUBLIC_URL%/static/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="%PUBLIC_URL%/static/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/static/apple-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="%PUBLIC_URL%/static/apple-icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="256x256" href="%PUBLIC_URL%/static/apple-icon-256x256.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="%PUBLIC_URL%/static/apple-icon-512x512.png">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Second PWA">
+    
+    <script type="text/javascript" src="https://cdn.rawgit.com/alexgibson/shake.js/master/shake.js"></script>
+
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <script type="text/javascript">
+
+      window.onload = function() {
+          //create a new instance of shake.js.
+          var myShakeEvent = new Shake({
+              threshold: 2
+          });
+          // start listening to device motion
+          myShakeEvent.start();
+          // register a shake event
+          window.addEventListener('shake', shakeEventDidOccur, false);
+          //shake event callback
+          function shakeEventDidOccur () {
+              //put your own code here etc.
+              alert('Shook!');
+          }
+      };
+      
+      (function() {
+        'use strict';
+      
+        // window.onload = function() {
+        //   let content = localStorage.getItem("qrCodeMessage") || 'QR Codes are great!';
+        //   $('#qrCodeMessage').val(content);
+        //   $('#qrcode').qrcode(content);
+        // }
+      
+        // $('#buttonGenerate').click(() => {
+        //   console.log('click');
+        //   let message = $('#qrCodeMessage').val();
+        //   localStorage.setItem("qrCodeMessage", message);
+        //   $('#qrcode').html('');
+        //   $('#qrcode').qrcode(message);
+        // });
+      
+        console.log('Checking service-worker');
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker
+           .register('%PUBLIC_URL%/custom-service-worker.js?v3')
+           .then(function() { console.log('Service Worker Registered'); });
+        } else {
+          console.log('No Service-Worker available');
+        }
+      })();
+    </script>
+  </body>
+</html>

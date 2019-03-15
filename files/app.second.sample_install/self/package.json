@@ -10,13 +10,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "adm-zip": "0.4.13",
-    "crypto-js": "3.1.9-1",
+    "cheerio": "1.0.0-rc.2",
     "fs-extra": "7.0.1",
-    "github-api": "3.0.0",
-    "globby": "9.1.0",
-    "parse-github-url": "1.0.2",
+    "path-to-regexp": "3.0.0",
     "request": "2.88.0",
-    "rsync": "0.6.1"
+    "route-parser": "0.0.5",
+    "unzipper": "0.9.11"
   }
 }
