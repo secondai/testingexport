@@ -29,7 +29,7 @@
           "vars": {},
           "image": "dbuilder_1552353917589",
           "command": "npm run second:build:self",
-          "lastBuilt": "2019-03-12T01:25:40.828Z",
+          "lastBuilt": "2019-03-14T23:50:20.742Z",
           "dockerfile": "dockerfile.second"
         }
       }
@@ -47,6 +47,6 @@
   },
   "blobdata": null,
   "createdAt": "2019-03-02T22:50:01.266Z",
-  "updatedAt": "2019-03-14T18:55:25.917Z",
+  "updatedAt": "2019-03-15T01:55:30.746Z",
   "nodes": []
 }
