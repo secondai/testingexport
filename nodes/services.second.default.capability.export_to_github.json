@@ -1,0 +1,26 @@
+{
+  "name": "services.second.default.capability.export_to_github",
+  "type": "types.second.default.service.js",
+  "data": {
+    "src": {
+      "self": {
+        "src": {
+          "targetDir": "self"
+        },
+        "build": {
+          "vars": {},
+          "image": "dbuilder_1552592815974",
+          "command": "npm run second:build:self",
+          "lastBuilt": "2019-03-15T02:12:29.367Z",
+          "dockerfile": "dockerfile.second"
+        }
+      }
+    },
+    "exec": "/self/dist/second.input.js",
+    "vars": {}
+  },
+  "blobdata": null,
+  "createdAt": "2019-03-14T19:17:20.306Z",
+  "updatedAt": "2019-03-15T02:12:29.371Z",
+  "nodes": []
+}
